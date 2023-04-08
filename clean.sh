@@ -1,2 +1,2 @@
 docker rm debian-custom
-docker rmi mane1docker/debian-custom:latest
+docker rmi ghcr.io/manegit/docker-debian-custom:latest
