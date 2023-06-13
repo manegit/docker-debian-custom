@@ -5,17 +5,10 @@ ENV USER=debian
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install packages
-RUN apt update && apt install -y python3-pip mc ncdu aria2 htop fd-find nano busybox \
+RUN apt update && apt install -y python3-full python3-pip mc ncdu aria2 htop fd-find nano busybox \
 git git-lfs lynx jq bc dos2unix gawk sed p7zip gzip markdown neofetch \
 tmux curl cmatrix w3m bash figlet nmap sudo emacs gnupg bsdmainutils age vim \
-less at newsboat buku ddgr caca-utils && rm -rf /var/lib/apt/lists/*
-
-# upgrade pip
-RUN pip3 install --upgrade pip
-
-# install Python modules
-COPY requirements.txt /usr/src/py3/
-RUN pip3 install --no-cache-dir -r /usr/src/py3/requirements.txt
+less at newsboat buku ddgr caca-utils ranger pydf speedtest-cli howdoi && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -s /bin/bash -G sudo $USER && echo "$USER:$USER" | chpasswd
 
